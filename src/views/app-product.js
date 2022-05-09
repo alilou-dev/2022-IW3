@@ -2,30 +2,30 @@ import { html } from 'lit';
 import { Base } from '../Base';
 
 export class AppProduct extends Base {
-  constructor() {
-    super();
+    constructor() {
+        super();
 
-    this.product = {};
+        this.product = {};
 
-    this.loaded = false;
-  }
-
-  static get properties() {
-    return {
-      product: { type: Object },
-      loaded: { type: Boolean, state: true }
+        this.loaded = false;
     }
-  }
-  
-  firstUpdated() {
-    const image = this.querySelector('img');
-    image.addEventListener('load', () => {
-      this.loaded = true;
-    });
-  }
 
-  render() {
-    return html`
+    static get properties() {
+        return {
+            product: { type: Object },
+            loaded: { type: Boolean, state: true }
+        }
+    }
+
+    firstUpdated() {
+        const image = this.querySelector('img');
+        image.addEventListener('load', () => {
+            this.loaded = true;
+        });
+    }
+
+    render() {
+        return html `
       <section class="product">
         <header>
           <figure>
@@ -45,6 +45,6 @@ export class AppProduct extends Base {
         </main>
       </section>
     `;
-  }
+    }
 }
 customElements.define('app-product', AppProduct);
